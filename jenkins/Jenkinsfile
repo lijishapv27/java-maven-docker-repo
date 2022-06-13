@@ -1,13 +1,20 @@
-pipeline {
+
+ pipeline {
     agent any
+
+    stage('Deliver') {
+        steps {
+            sh './jenkins/scripts/deliver.sh'
+        }
+    }
  
     stages {
         stage('Docker Build and Tag') {
             steps {
               
-                sh 'docker build -t nginxtest:latest .' 
-                sh 'docker tag nginxtest nikhilnidhi/nginxtest:latest'
-                sh 'docker tag nginxtest nikhilnidhi/nginxtest:$BUILD_NUMBER'
+                sh 'docker build -t java-maven-jenkins:latest .' 
+                sh 'docker tag java-maven-jenkins lijisha27/java-maven-jenkins:latest'
+                sh 'docker tag nginxtest lijisha27/java-maven-jenkins:$BUILD_NUMBER'
             }
         }
      
@@ -38,3 +45,5 @@ pipeline {
         }
     }
 }
+
+  
