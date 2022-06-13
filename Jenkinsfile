@@ -5,9 +5,9 @@ pipeline {
         stage('Docker Build and Tag') {
             steps {
               
-                sh 'docker build -t java-maven-docker-repo:latest .' 
-                sh 'docker tag java-maven-docker-repo lijisha27/java-maven-jenkins:latest'
-                sh 'docker tag java-maven-docker-repo lijisha27/java-maven-jenkins:$BUILD_NUMBER'
+                sh 'docker build -t nginxtest:latest .' 
+                sh 'docker tag nginxtest nikhilnidhi/nginxtest:latest'
+                sh 'docker tag nginxtest nikhilnidhi/nginxtest:$BUILD_NUMBER'
             }
         }
      
