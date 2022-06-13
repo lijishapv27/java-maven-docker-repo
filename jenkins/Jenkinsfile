@@ -2,12 +2,6 @@
  pipeline {
     agent any
 
-    stage('Deliver') {
-        steps {
-            sh './jenkins/scripts/deliver.sh'
-        }
-    }
- 
     stages {
         stage('Docker Build and Tag') {
             steps {
